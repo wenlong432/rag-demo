@@ -5,10 +5,13 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 # 初始化LLM
 llm = ChatOpenAI(
-    api_key="sk-ijckjoaeslccrvhmpdgahcsbowqldlusnxmexxexemzjccqa",
+    api_key=os.getenv("SILICONFLOW_API_KEY"),
     base_url="https://api.siliconflow.cn/v1",
     model="deepseek-ai/DeepSeek-V3"
 )
